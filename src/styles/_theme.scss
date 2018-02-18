@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  font-family: $font-family-base;
+}
+
+header  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[template] {
+  display: none !important;
+}
+
+books {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+books .book {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+books .book__thumbnail {
+  width: 166px;
+  height: 166px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 15px #ccc;
+  border: solid 10px #fff;
+}
+books .book__thumbnail:active {
+  transform: scale(.9);
+  box-shadow: 1px 1px 5px #ccc;
+}
+books .book__data {
+  border: solid 1px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  margin-left: 10px;
+}
+books .book__title {
+  border: solid 1px;
+  padding: 0 5px;
+  font-size: 36px;
+  font-weight: bold;
+}
+books .book__isbn {
+  border: solid 1px;
+  padding: 0 5px;
+}
+books .book__authors {
+  border: solid 1px;
+  padding: 0 5px;
+}
+books  .book__description {
+  border: solid 1px;
+  padding: 0 5px;
+  height: 100px;
+  overflow: auto;
+}
