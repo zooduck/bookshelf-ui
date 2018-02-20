@@ -1,5 +1,5 @@
 {
-  "name": "bookshelf-ui",
+  "name": "zooferri-bookshelf-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,7 +17,15 @@
     "build": "set NODE_ENV=production && webpack --config=webpack.config.js --watch",
     "build-linux": "export NODE_ENV=production && webpack --config=webpack.config.js --watch"
   },
-  "author": "zooduck",
+  "author": "zooduck <zooduck@beniceoreatsomerice.com>",
+  "contributors": [
+    "Wesley Pumpkinhead <wesley@somewhereovertherainbow.co.uk>",
+    "Nicola Ferri"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zooduck/zooferri-bookshelf-ui.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
