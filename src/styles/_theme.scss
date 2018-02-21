@@ -48,23 +48,24 @@ books .book__data {
   flex-basis: 100%;
   margin-left: 10px;
 }
-books .book__title {
-  border: solid 1px;
+books .book__data .book__title {
   padding: 0 5px;
   font-size: 36px;
   font-weight: bold;
+  background-color: #eee;
 }
-books .book__isbn {
-  border: solid 1px;
+books .book__data .book__isbn {
   padding: 0 5px;
 }
-books .book__authors {
-  border: solid 1px;
+books .book__data .book__authors {
   padding: 0 5px;
 }
-books  .book__description {
-  border: solid 1px;
+books .book__data .book__description {
   padding: 0 5px;
-  height: 100px;
+  max-height: 100px;
   overflow: auto;
+  margin: 5px;
+  border: solid 0 gainsboro;
+  border-top-width: 3px;
+  padding-top: 5px;
 }
