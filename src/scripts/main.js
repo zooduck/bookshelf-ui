@@ -1,16 +1,16 @@
-let xhr = new XMLHttpRequest();
-xhr.open("GET", "http://dbe20230.ngrok.io/bookshelf/");
-xhr.send();
-xhr.onload = () => {
-  const books = JSON.parse(xhr.responseText);
-  console.log(books);
-  for (let book of books) {
-    for (let i in book) {
-      book[i] = book[i] || "N/A";
-    }
-    addBookToDOM(book);
-  }
-}
+// let xhr = new XMLHttpRequest();
+// xhr.open("GET", "http://dbe20230.ngrok.io/bookshelf/");
+// xhr.send();
+// xhr.onload = () => {
+//   const books = JSON.parse(xhr.responseText);
+//   console.log(books);
+//   for (let book of books) {
+//     for (let i in book) {
+//       book[i] = book[i] || "N/A";
+//     }
+//     addBookToDOM(book);
+//   }
+// }
 
 const addBookToDOM = (data) => {
   const books = document.querySelector("books");
@@ -27,9 +27,23 @@ const addBookToDOM = (data) => {
   if (data.google_thumbnail !== "N/A") {
       book__el__thumbnail.style.backgroundImage = `url("${data.google_thumbnail}")`;
   }
-  book__el__isbn.innerHTML = `ISBN: ${data.isbn}`;
+  book__el__isbn.innerHTML = `<strong>ISBN:</strong> ${data.isbn}`;
   book__el__title.innerHTML = data.title;
-  book__el__authors.innerHTML = data.authors.map( (item) => item.name).join(",");
-  book__el__description.innerHTML = data.description;
+  book__el__authors.innerHTML = data.authors.length > 1? "<strong>Authors:</strong> " : "<strong>Author:</strong> ";
+  book__el__authors.innerHTML += data.authors.map( (item) => item.name).join(", ");
+
+  if (data.description) {
+    book__el__description.innerHTML = data.description;
+  } else book__el__description.hidden = true;
+
+
   books.appendChild(book__el);
 }
+
+const mockAPI__books = () => {
+  const mock__books = require("../books.mock.json");
+  for (const book of mock__books) {
+    addBookToDOM(book);
+  }
+}
+mockAPI__books();
