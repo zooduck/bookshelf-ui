@@ -43,6 +43,7 @@ books .book__thumbnail:active {
 }
 books .book__data {
   display: flex;
+  align-self: baseline;
   flex-direction: column;
   flex-basis: 100%;
   margin-left: 10px;
