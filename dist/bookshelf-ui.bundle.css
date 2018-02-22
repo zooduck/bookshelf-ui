@@ -2948,6 +2948,8 @@ books .book__thumbnail:active {
 books .book__data {
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
   -ms-flex-direction: column;
       flex-direction: column;
   -ms-flex-preferred-size: 100%;
