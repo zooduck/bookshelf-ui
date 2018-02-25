@@ -1,5 +1,5 @@
 {
-  "name": "zooferri-bookshelf-ui",
+  "name": "zoobooks-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zooduck/zooferri-bookshelf-ui.git"
+    "url": "https://github.com/zooduck/zoobooks-ui.git"
   },
   "license": "ISC",
   "devDependencies": {
