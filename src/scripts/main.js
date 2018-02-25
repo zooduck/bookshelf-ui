@@ -1,16 +1,39 @@
-// let xhr = new XMLHttpRequest();
-// xhr.open("GET", "http://dbe20230.ngrok.io/bookshelf/");
-// xhr.send();
-// xhr.onload = () => {
-//   const books = JSON.parse(xhr.responseText);
-//   console.log(books);
-//   for (let book of books) {
-//     for (let i in book) {
-//       book[i] = book[i] || "N/A";
-//     }
-//     addBookToDOM(book);
-//   }
-// }
+// const apiUrl__getBooks = "http://localhost:4567";
+// const apiUrl = "https://zoobooks-api.herokuapp.com/";
+const apiUrls = {
+  getBooks: "https://zoobooks-api.herokuapp.com/",
+  addBook: "https://zoobooks-api.herokuapp.com/add_book/",
+  deleteBook: "https://zoobooks-api.herokuapp.com/delete_book/"
+};
+
+const apiUrls__LOCAL = {
+  getBooks: "http://localhost:4567",
+  addBook: "",
+  deleteBook: ""
+};
+
+
+let xhr = new XMLHttpRequest();
+xhr.open("GET", apiUrls.getBooks);
+xhr.send();
+xhr.onload = () => {
+  const books = JSON.parse(xhr.responseText);
+  console.log(books);
+  for (let book of books) {
+    for (let i in book) {
+      book[i] = book[i] || "N/A";
+    }
+    addBookToDOM(book);
+  }
+}
+
+
+
+
+
+
+
+
 
 const addBookToDOM = (data) => {
   const books = document.querySelector("books");
@@ -40,10 +63,10 @@ const addBookToDOM = (data) => {
   books.appendChild(book__el);
 }
 
-const mockAPI__books = () => {
-  const mock__books = require("../books.mock.json");
-  for (const book of mock__books) {
-    addBookToDOM(book);
-  }
-}
-mockAPI__books();
+// const mockAPI__books = () => {
+//   const mock__books = require("../books.mock.json");
+//   for (const book of mock__books) {
+//     addBookToDOM(book);
+//   }
+// }
+// mockAPI__books();

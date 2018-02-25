@@ -13,59 +13,83 @@ header  {
   align-items: center;
 }
 
+input[type=text], textarea {
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+button[type=button] {
+  border: none;
+  padding: 5px;
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+button[type=button]:active {
+  transform: scale(.95);
+}
+button[type=button]:hover {
+  background-color: #eee;
+  color: #111;
+}
+
 [template] {
   display: none !important;
 }
 
-books {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+
+.hidden {
+  display: none !important;
 }
-books .book {
-  display: flex;
-  align-items: center;
+
+
+
+
+maintenance {
+  user-select: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #222;
+  color: #eee;
   padding: 10px;
-}
-books .book__thumbnail {
-  width: 166px;
-  height: 166px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex-shrink: 0;
-  box-shadow: 2px 2px 15px #ccc;
-  border: solid 10px #fff;
-}
-books .book__thumbnail:active {
-  transform: scale(.9);
-  box-shadow: 1px 1px 5px #ccc;
-}
-books .book__data {
-  display: flex;
-  align-self: baseline;
-  flex-direction: column;
-  flex-basis: 100%;
-  margin-left: 10px;
-}
-books .book__data .book__title {
-  padding: 0 5px;
-  font-size: 36px;
-  font-weight: bold;
-  background-color: #eee;
-}
-books .book__data .book__isbn {
-  padding: 0 5px;
-}
-books .book__data .book__authors {
-  padding: 0 5px;
-}
-books .book__data .book__description {
-  padding: 0 5px;
-  max-height: 100px;
-  overflow: auto;
-  margin: 5px;
-  border: solid 0 gainsboro;
-  border-top-width: 3px;
-  padding-top: 5px;
+  font-size: 32px;
+
+  .form__add-book {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .form__add-book__thumbnail {
+    width: 250px;
+    height: 250px;
+    align-self: center;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .form__add-book__item {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    margin-top: 5px;
+  }
+  .form__add-book__item input, .form__add-book__item textarea {
+    resize: none;
+    font-size: 32px;
+    min-width: 70vw;
+    background-color: #222;
+    color: #eee;
+  }
+  .form__add-book__item input:focus, .form__add-book__item textarea:focus {
+    background-color: #555;
+    color: #111;
+  }
+  .form__add-book__item label {
+    display: flex;
+    align-items: baseline;
+    color: #555;
+  }
 }

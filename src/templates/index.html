@@ -4,14 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="author" content="zooduck">
-        <link rel="manifest" href="./manifest.json">
-        <title>zooferri-bookshelf-ui</title>
+        <!-- styles -->
+        <link 1rel="manifest" href="./manifest.json">
+        <title>zoobooks-ui</title>
     </head>
 
     <body>
 
       <header>
-        <span>zooferri-bookshelf-ui</span>
+        <span>zoobooks-ui</span>
       </header>
 
       <books>
@@ -27,6 +28,48 @@
           </div>
         </div>
       </books>
+
+      <maintenance>
+
+        <div class="form__add-book" id="form__addBook">
+
+          <div class="form__add-book__thumbnail" form__add-book__book-thumbnail></div>
+
+          <div class="form__add-book__item">
+            <label>
+              <span>ISBN</span>
+              <input type="text" placeholder="Ex. 978-0-14-102052-5" form__add-book__book-isbn>
+            </label>
+          </div>
+
+          <div class="form__add-book__item">
+            <label>
+              <span>Title</span>
+              <!-- <input type="text" placeholder="Ex. A short history of tractors in Ukrainian" form__add-book__book-title> -->
+              <textarea placeholder="Ex. A short history of tractors in Ukrainian" form__add-book__book-title></textarea>
+            </label>
+          </div>
+
+          <div class="form__add-book__item">
+            <label>
+              <span>Author(s)</span>
+              <input type="text" placeholder="Ex. Marina Lewycka" form__add-book__book-authors>
+            </label>
+          </div>
+
+          <div class="form__add-book__item">
+            <button type="button" id="ctrl__findBookByISBN">Find</button>
+            <button type="button" id="ctrl__addBookToLibrary" class="hidden">Add Book to Library</button>
+          </div>
+
+        </div><!-- // form__add-book -->
+
+      </maintenance>
+
+
+      <loader id="loader" hidden>
+
+      </loader>
 
     </body>
 

@@ -1,0 +1,52 @@
+books {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+books .book {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+books .book__thumbnail {
+  width: 166px;
+  height: 166px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 15px #ccc;
+  border: solid 10px #fff;
+}
+books .book__thumbnail:active {
+  transform: scale(.9);
+  box-shadow: 1px 1px 5px #ccc;
+}
+books .book__data {
+  display: flex;
+  align-self: baseline;
+  flex-direction: column;
+  flex-basis: 100%;
+  margin-left: 10px;
+}
+books .book__data .book__title {
+  padding: 0 5px;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: #eee;
+}
+books .book__data .book__isbn {
+  padding: 0 5px;
+}
+books .book__data .book__authors {
+  padding: 0 5px;
+}
+books .book__data .book__description {
+  padding: 0 5px;
+  max-height: 100px;
+  overflow: auto;
+  margin: 5px;
+  border: solid 0 gainsboro;
+  border-top-width: 3px;
+  padding-top: 5px;
+}
