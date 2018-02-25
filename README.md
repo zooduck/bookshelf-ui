@@ -1,4 +1,4 @@
-# zooferri-bookshelf-ui
+# zoobooks-ui
 UI for viewing and updating a library of books.
 
 ### After cloning repo:
