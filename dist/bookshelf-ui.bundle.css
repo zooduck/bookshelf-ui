@@ -2904,20 +2904,6 @@
       font-family: inherit;
       background: inherit;
       color: inherit; }
-* {
-  box-sizing: border-box; }
-body {
-  margin: 0 auto;
-  font-family: calibri, sans-serif; }
-header {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center; }
-[template] {
-  display: none !important; }
 books {
   display: -ms-flexbox;
   display: flex;
@@ -2972,5 +2958,96 @@ books .book__data .book__description {
   border: solid 0 gainsboro;
   border-top-width: 3px;
   padding-top: 5px; }
+loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, .5); }
+* {
+  box-sizing: border-box; }
+body {
+  margin: 0 auto;
+  font-family: calibri, sans-serif; }
+header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+input[type=text], textarea {
+  padding: 5px;
+  border: none;
+  outline: none; }
+button[type=button] {
+  border: none;
+  padding: 5px;
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer; }
+button[type=button]:active {
+  -ms-transform: scale(0.95);
+      transform: scale(0.95); }
+button[type=button]:hover {
+  background-color: #eee;
+  color: #111; }
+[template] {
+  display: none !important; }
+.hidden {
+  display: none !important; }
+maintenance {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #222;
+  color: #eee;
+  padding: 10px;
+  font-size: 32px; }
+maintenance .form__add-book {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: end;
+        align-items: flex-end; }
+maintenance .form__add-book__thumbnail {
+    width: 250px;
+    height: 250px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; }
+maintenance .form__add-book__item {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    font-size: 32px;
+    margin-top: 5px; }
+maintenance .form__add-book__item input, maintenance .form__add-book__item textarea {
+    resize: none;
+    font-size: 32px;
+    min-width: 70vw;
+    background-color: #222;
+    color: #eee; }
+maintenance .form__add-book__item input:focus, maintenance .form__add-book__item textarea:focus {
+    background-color: #555;
+    color: #111; }
+maintenance .form__add-book__item label {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: baseline;
+        align-items: baseline;
+    color: #555; }
 
 /*# sourceMappingURL=bookshelf-ui.bundle.css.map*/
