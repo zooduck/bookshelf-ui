@@ -8,9 +8,9 @@
   "bookshelf-ui.css.map": "bookshelf-ui.bundle.css.map",
   "bookshelf-ui.js": "bookshelf-ui.bundle.js",
   "dependencies.js": "dependencies.bundle.js",
-  "fonts\\ionicons.eot?v=3.0.0-alpha.3": "./fonts/ionicons.eot",
-  "fonts\\ionicons.svg?v=3.0.0-alpha.3": "./fonts/ionicons.svg",
-  "fonts\\ionicons.ttf?v=3.0.0-alpha.3": "./fonts/ionicons.ttf",
-  "fonts\\ionicons.woff2?v=3.0.0-alpha.3": "./fonts/ionicons.woff2",
-  "fonts\\ionicons.woff?v=3.0.0-alpha.3": "./fonts/ionicons.woff"
+  "fonts/ionicons.eot?v=3.0.0-alpha.3": "./fonts/ionicons.eot",
+  "fonts/ionicons.svg?v=3.0.0-alpha.3": "./fonts/ionicons.svg",
+  "fonts/ionicons.ttf?v=3.0.0-alpha.3": "./fonts/ionicons.ttf",
+  "fonts/ionicons.woff2?v=3.0.0-alpha.3": "./fonts/ionicons.woff2",
+  "fonts/ionicons.woff?v=3.0.0-alpha.3": "./fonts/ionicons.woff"
 }
