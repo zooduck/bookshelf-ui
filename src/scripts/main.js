@@ -1,3 +1,11 @@
+if (location.search.match(/dev\=1/)) {
+  const devOnlyEls = document.querySelectorAll("[developeronly]");
+  for (let el of devOnlyEls) {
+    el.removeAttribute("developeronly");
+  }
+}
+
+
 // const apiUrl__getBooks = "http://localhost:4567";
 // const apiUrl = "https://zoobooks-api.herokuapp.com/";
 const apiUrls = {
