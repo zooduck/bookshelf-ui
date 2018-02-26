@@ -2997,6 +2997,8 @@ button[type=button]:hover {
   color: #111; }
 [template] {
   display: none !important; }
+[developeronly] {
+  display: none !important; }
 .hidden {
   display: none !important; }
 maintenance {
