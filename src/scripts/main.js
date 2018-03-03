@@ -54,7 +54,7 @@ const addBookToDOM = (data) => {
   const book__el__thumbnailanchor = book__el.querySelector("[thumbnailanchor]");
   const book__el__thumbnail = book__el.querySelector("[thumbnail]");
   const book__el__description = book__el.querySelector("[description]");
-  book__el__thumbnailanchor.setAttribute("href", data.google_preview_link);
+  book__el__thumbnailanchor.setAttribute("href", data.previewLink);
   if (data.google_thumbnail !== "N/A") {
       book__el__thumbnail.style.backgroundImage = `url("${data.google_thumbnail}")`;
   }
@@ -66,7 +66,6 @@ const addBookToDOM = (data) => {
   if (data.description) {
     book__el__description.innerHTML = data.description;
   } else book__el__description.hidden = true;
-
 
   books.appendChild(book__el);
 }

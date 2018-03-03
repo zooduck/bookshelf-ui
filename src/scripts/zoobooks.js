@@ -48,16 +48,3 @@ const zoobooks = (function zoobooks () {
   }
 })();
 window.zoobooks = zoobooks;
-
-
-
-// export const form__addBook = document.getElementById("form__addBook");
-// export const
-// export const
-// export const
-//
-//
-//
-// export const
-// export const
-// export const
