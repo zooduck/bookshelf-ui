@@ -2914,8 +2914,6 @@ books {
 books .book {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
-      align-items: center;
   padding: 10px; }
 books .book__thumbnail {
   width: 166px;
@@ -2940,24 +2938,37 @@ books .book__data {
       flex-direction: column;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
-  margin-left: 10px; }
+  margin-left: 10px;
+  font-size: 22px; }
+books .book__data div:not(:first-of-type) {
+  margin-top: 5px; }
 books .book__data .book__title {
-  padding: 0 5px;
+  padding: 5px;
   font-size: 36px;
   font-weight: bold;
   background-color: #eee; }
 books .book__data .book__isbn {
   padding: 0 5px; }
+books .book__data .book__isbn span:first-of-type {
+  font-weight: bold; }
 books .book__data .book__authors {
   padding: 0 5px; }
+books .book__data .book__authors span:first-of-type {
+  font-weight: bold; }
+books .book__data .book__category {
+  padding: 0 5px; }
+books .book__data .book__category span:first-of-type {
+  font-weight: bold; }
 books .book__data .book__description {
   padding: 0 5px;
-  max-height: 100px;
-  overflow: auto;
-  margin: 5px;
-  border: solid 0 gainsboro;
-  border-top-width: 3px;
-  padding-top: 5px; }
+  text-align: justify; }
+books .book__data .book__description span:first-of-type {
+  font-weight: bold; }
+books .book__data .book__description [description] {
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+  font: normal 24px calibri, sans-serif; }
 loader {
   position: fixed;
   left: 0;
@@ -2978,29 +2989,31 @@ header {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center; }
-input[type=text], textarea {
+input[type=text], textarea, select {
   padding: 5px;
   border: none;
   outline: none; }
 button[type=button] {
   border: none;
+  outline: none;
   padding: 5px;
-  background: transparent;
-  color: #fff;
+  background-color: burlywood;
+  color: #111;
   font-size: 24px;
-  cursor: pointer; }
-button[type=button]:active {
-  -ms-transform: scale(0.95);
-      transform: scale(0.95); }
-button[type=button]:hover {
-  background-color: #eee;
-  color: #111; }
+  cursor: pointer;
+  font-family: arial, sans-serif;
+  font-weight: bold; }
 [template] {
   display: none !important; }
 [developeronly] {
   display: none !important; }
 .hidden {
   display: none !important; }
+.spacer__x__10px {
+  margin-left: 10px;
+  margin-right: 10px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0; }
 maintenance {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -3013,43 +3026,66 @@ maintenance {
   color: #eee;
   padding: 10px;
   font-size: 32px; }
+maintenance .form__add-book__wrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
 maintenance .form__add-book {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
-    -ms-flex-align: end;
-        align-items: flex-end; }
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
 maintenance .form__add-book__thumbnail {
-    width: 250px;
+    min-width: 250px;
     height: 250px;
+    margin: auto;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; }
-maintenance .form__add-book__item {
+maintenance .form__add-book__item, maintenance .form__add-book__ctrls {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
         align-items: center;
     font-size: 32px;
     margin-top: 5px; }
-maintenance .form__add-book__item input, maintenance .form__add-book__item textarea {
+maintenance .form__add-book__item input, maintenance .form__add-book__item textarea, maintenance .form__add-book__item select {
     resize: none;
     font-size: 32px;
-    min-width: 70vw;
     background-color: #222;
-    color: #eee; }
-maintenance .form__add-book__item input:focus, maintenance .form__add-book__item textarea:focus {
-    background-color: #555;
-    color: #111; }
+    color: #eee;
+    overflow: hidden;
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
+maintenance .form__add-book__item input:focus, maintenance .form__add-book__item textarea:focus, maintenance .form__add-book__item select:focus {
+    background-color: #333;
+    color: #999; }
 maintenance .form__add-book__item label {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: baseline;
         align-items: baseline;
-    color: #555; }
+    color: #555;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%; }
+maintenance .form__add-book__item label span {
+    margin-right: 10px; }
+maintenance .form__add-book__ctrls {
+    margin-top: 20px;
+    -ms-flex-pack: center;
+        justify-content: center; }
+maintenance .form__add-book__ctrls button {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    font-size: 32px; }
+maintenance .form__add-book__ctrls button.chevron {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto; }
 
 /*# sourceMappingURL=bookshelf-ui.bundle.css.map*/
