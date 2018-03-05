@@ -5,7 +5,7 @@ books {
 }
 books .book {
   display: flex;
-  align-items: center;
+  // align-items: center;
   padding: 10px;
 }
 books .book__thumbnail {
@@ -28,9 +28,13 @@ books .book__data {
   flex-direction: column;
   flex-basis: 100%;
   margin-left: 10px;
+  font-size: 22px;
+}
+books .book__data div:not(:first-of-type) {
+  margin-top: 5px;
 }
 books .book__data .book__title {
-  padding: 0 5px;
+  padding: 5px;
   font-size: 36px;
   font-weight: bold;
   background-color: #eee;
@@ -38,15 +42,41 @@ books .book__data .book__title {
 books .book__data .book__isbn {
   padding: 0 5px;
 }
+books .book__data .book__isbn span:first-of-type {
+  font-weight: bold;
+}
 books .book__data .book__authors {
   padding: 0 5px;
 }
+books .book__data .book__authors span:first-of-type {
+  font-weight: bold;
+}
+books .book__data .book__category {
+  padding: 0 5px;
+}
+books .book__data .book__category span:first-of-type {
+  font-weight: bold;
+}
 books .book__data .book__description {
   padding: 0 5px;
-  max-height: 100px;
-  overflow: auto;
-  margin: 5px;
-  border: solid 0 gainsboro;
-  border-top-width: 3px;
-  padding-top: 5px;
+  text-align: justify;
+
+  // max-height: 100px;
+  // overflow: hidden;
+  // resize: none;
+  // overflow: auto;
+
+  // border: solid 0 gainsboro;
+  // border-top-width: 3px;
+  // padding-top: 5px;
+}
+books .book__data .book__description span:first-of-type {
+  font-weight: bold;
+}
+books .book__data .book__description [description] {
+  // margin-top: 5px;
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+  font: normal 24px calibri, sans-serif;
 }

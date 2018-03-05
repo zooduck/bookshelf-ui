@@ -13,31 +13,34 @@ header  {
   align-items: center;
 }
 
-input[type=text], textarea {
+input[type=text], textarea, select {
   padding: 5px;
   border: none;
   outline: none;
 }
 button[type=button] {
   border: none;
+  outline: none;
   padding: 5px;
-  background: transparent;
-  color: #fff;
+  background-color: burlywood;
+  color: #111;
   font-size: 24px;
   cursor: pointer;
+  font-family: arial, sans-serif;
+  font-weight: bold;
 }
 button[type=button]:active {
-  transform: scale(.95);
+  // transform: scale(.985);
 }
 button[type=button]:hover {
-  background-color: #eee;
-  color: #111;
+
 }
+
+
 
 [template] {
   display: none !important;
 }
-
 
 [developeronly] {
   display: none !important;
@@ -45,6 +48,14 @@ button[type=button]:hover {
 
 .hidden {
   display: none !important;
+}
+
+
+
+.spacer__x__10px {
+  margin-left: 10px;
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 
 
@@ -60,39 +71,69 @@ maintenance {
   padding: 10px;
   font-size: 32px;
 
+  .form__add-book__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .form__add-book {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    flex-grow: 1;
+    // align-items: flex-end;
   }
   .form__add-book__thumbnail {
-    width: 250px;
+    min-width: 250px;
     height: 250px;
+    margin: auto;
     align-self: center;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
   }
-  .form__add-book__item {
+  .form__add-book__item, .form__add-book__ctrls {
     display: flex;
     align-items: center;
     font-size: 32px;
     margin-top: 5px;
   }
-  .form__add-book__item input, .form__add-book__item textarea {
+  .form__add-book__item input, .form__add-book__item textarea, .form__add-book__item select {
     resize: none;
     font-size: 32px;
-    min-width: 70vw;
+    // min-width: 70vw;
     background-color: #222;
     color: #eee;
+    overflow: hidden;
+    flex-grow: 1;
   }
-  .form__add-book__item input:focus, .form__add-book__item textarea:focus {
-    background-color: #555;
-    color: #111;
+  .form__add-book__item input:focus, .form__add-book__item textarea:focus, .form__add-book__item select:focus {
+    background-color: #333;
+    color: #999;
   }
   .form__add-book__item label {
     display: flex;
     align-items: baseline;
     color: #555;
+    flex-basis: 100%;
+  }
+  .form__add-book__item label span {
+    margin-right: 10px;
+  }
+
+  .form__add-book__ctrls {
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .form__add-book__ctrls button {
+    flex-basis: 100%;
+    // background: #eee;
+    // color: #111;
+    font-size: 32px;
+  }
+  .form__add-book__ctrls button:first-of-type {
+    // margin-right: 10px;
+  }
+  .form__add-book__ctrls button.chevron {
+    flex-basis: auto;
   }
 }
