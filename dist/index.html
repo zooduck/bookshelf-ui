@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="author" content="zooduck">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- styles -->
-        <link 1rel="manifest" href="./manifest.json">
+        <link rel="manifest" href="./manifest.json">
         <title>zoobooks-ui</title>
     <link href="bookshelf-ui.bundle.css" rel="stylesheet"></head>
 
@@ -13,21 +14,26 @@
 
       <header>
         <span>zoobooks-ui</span>
+        <div class="header__ctrl__menu">
+          <button type="button" id="ctrl__menuToggle">
+            <i class="material-icons md-dark">menu</i>
+          </button>
+        </div>
       </header>
 
       <books>
         <div class="book" id="bookTemplate" template>
-          <a href="xxxHTMLLINKxxx0.86079042272039350.185505400496351xxx" target="_blank" thumbnailanchor>
+          <a href="xxxHTMLLINKxxx0.93015840672887860.7839691354893148xxx" target="_blank" thumbnailanchor>
             <div class="book__thumbnail" thumbnail alt=""></div>
           </a>
           <div class="book__data">
             <div class="book__title">
               <span title></span>
             </div>
-            <div class="book__isbn">
+            <!-- <div class="book__isbn">
               <span>ISBN</span>
               <span isbn></span>
-            </div>
+            </div> -->
             <div class="book__authors">
               <span>Author(s)</span>
               <span authors></span>
@@ -36,17 +42,18 @@
               <span>Category</span>
               <span category></span>
             </div>
-            <div class="book__description">
+            <!-- <div class="book__description">
               <span>Description</span>
               <div>
                 <textarea rows="5" description readonly></textarea>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </books>
 
-      <maintenance developeronly>
+      <!-- <maintenance developeronly> -->
+      <maintenance>
 
         <div class="form__add-book__wrapper">
 

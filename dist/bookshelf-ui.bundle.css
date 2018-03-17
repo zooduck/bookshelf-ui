@@ -2977,6 +2977,25 @@ loader {
   height: 100%;
   background-color: #000000;
   background-color: rgba(0, 0, 0, .5); }
+.material-icons.md-18 {
+  font-size: 18px; }
+.material-icons.md-24 {
+  font-size: 24px; }
+.material-icons.md-36 {
+  font-size: 36px; }
+.material-icons.md-48 {
+  font-size: 48px; }
+.material-icons.md-dark {
+  color: #000000;
+  color: rgba(0, 0, 0, .54); }
+.material-icons.md-dark.md-inactive {
+  color: #000000;
+  color: rgba(0, 0, 0, .26); }
+.material-icons.md-light {
+  color: white; }
+.material-icons.md-light.md-inactive {
+  color: #ffffff;
+  color: rgba(255, 255, 255, .3); }
 * {
   box-sizing: border-box; }
 body {
@@ -2985,10 +3004,12 @@ body {
 header {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
   -ms-flex-align: center;
-      align-items: center; }
+      align-items: center;
+  background-color: black;
+  color: white; }
 input[type=text], textarea, select {
   padding: 5px;
   border: none;
@@ -3020,12 +3041,14 @@ maintenance {
       -ms-user-select: none;
           user-select: none;
   position: fixed;
-  top: 0;
+  top: 40px;
+  left: 100%;
   width: 100%;
   background-color: #222;
   color: #eee;
   padding: 10px;
-  font-size: 32px; }
+  font-size: 32px;
+  transition: left .5s; }
 maintenance .form__add-book__wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -3087,5 +3110,7 @@ maintenance .form__add-book__ctrls button {
 maintenance .form__add-book__ctrls button.chevron {
     -ms-flex-preferred-size: auto;
         flex-basis: auto; }
+maintenance.active {
+  left: 0; }
 
 /*# sourceMappingURL=bookshelf-ui.bundle.css.map*/
