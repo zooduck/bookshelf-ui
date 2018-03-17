@@ -9,8 +9,10 @@ body {
 
 header  {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  background-color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
 input[type=text], textarea, select {
@@ -64,12 +66,14 @@ button[type=button]:hover {
 maintenance {
   user-select: none;
   position: fixed;
-  top: 0;
+  top: 40px;
+  left: 100%;
   width: 100%;
   background-color: #222;
   color: #eee;
   padding: 10px;
   font-size: 32px;
+  transition: left .5s;
 
   .form__add-book__wrapper {
     display: flex;
@@ -82,6 +86,7 @@ maintenance {
     flex-grow: 1;
     // align-items: flex-end;
   }
+
   .form__add-book__thumbnail {
     min-width: 250px;
     height: 250px;
@@ -136,4 +141,8 @@ maintenance {
   .form__add-book__ctrls button.chevron {
     flex-basis: auto;
   }
+}
+
+maintenance.active {
+  left: 0;
 }

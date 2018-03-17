@@ -27,10 +27,11 @@ export const findBookByISBN = (isbn, title, author) => {
 export const updateGoogleApisBookInDOM = (bookData) => {
   const authors = [bookData.volumeInfo.author || bookData.volumeInfo.authors || "N/A"];
   const authorsCSV = authors.toString();
+  if (bookData.volumeInfo.industryIdentifiers) bookData.volumeInfo.isbn = bookData.volumeInfo.industryIdentifiers[0].identifier;
   // =======================================================
   // set category on book by map to pre-defined categories
   // =======================================================
-  let category = null;
+  let category = "Other";
   if (bookData.volumeInfo.categories) {
     for (let key in zoobooks().categoriesMap()) {
       if (bookData.volumeInfo.categories[0].match(new RegExp(key, "i"))) {
@@ -38,10 +39,14 @@ export const updateGoogleApisBookInDOM = (bookData) => {
         break;
       }
     }
+    bookData.volumeInfo.category = category;
   }
 
   let thumbnailUrl = "";
-  if (bookData.volumeInfo.imageLinks && bookData.volumeInfo.imageLinks.thumbnail) thumbnailUrl = bookData.volumeInfo.imageLinks.thumbnail;
+  if (bookData.volumeInfo.imageLinks && bookData.volumeInfo.imageLinks.thumbnail) {
+    thumbnailUrl = bookData.volumeInfo.imageLinks.thumbnail;
+    bookData.volumeInfo.google_thumbnail = thumbnailUrl;
+  }
   zoobooks().elements()["forms"]["addBook"]["bookThumbnail"].style.backgroundImage = `url("${thumbnailUrl}")`;
   if (bookData.volumeInfo.industryIdentifiers) zoobooks().elements()["forms"]["addBook"]["bookISBN"].value = bookData.volumeInfo.industryIdentifiers[0].identifier;
   zoobooks().elements()["forms"]["addBook"]["bookTitle"].value = bookData.volumeInfo.title;

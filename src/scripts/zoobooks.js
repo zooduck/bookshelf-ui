@@ -58,18 +58,24 @@ const zoobooks = (function zoobooks () {
 
       elements() {
         return {
-          loader: document.getElementById("loader"),
+          loader: document.querySelector("#loader"),
+          maintenance: document.querySelector('maintenance'),
+          header: {
+            ctrls: {
+              menuToggle: document.querySelector("#ctrl__menuToggle"),
+            }
+          },
           forms: {
             addBook: {
-              form: document.getElementById("form__addBook"),
+              form: document.querySelector("#form__addBook"),
               bookISBN: document.querySelector("[form__add-book__book-isbn]"),
               bookTitle: document.querySelector("[form__add-book__book-title]"),
               bookAuthors: document.querySelector("[form__add-book__book-authors]"),
               bookThumbnail: document.querySelector("[form__add-book__book-thumbnail]"),
               bookCategory: document.querySelector("[form__add-book__book-category]"),
               ctrls: {
-                findBookByISBN: document.getElementById("ctrl__findBookByISBN"),
-                addBookToLibrary: document.getElementById("ctrl__addBookToLibrary"),
+                findBookByISBN: document.querySelector("#ctrl__findBookByISBN"),
+                addBookToLibrary: document.querySelector("#ctrl__addBookToLibrary"),
                 totalItems: document.querySelector("[form__add-book__ctrls__total-items]"),
                 nextBook: document.querySelector("[form__add-book__ctrls__next-book]"),
                 previousBook: document.querySelector("[form__add-book__ctrls__previous-book]")

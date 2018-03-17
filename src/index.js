@@ -7,10 +7,11 @@ import {addBookToLibrary} from "./scripts/addBookToLibrary.service.js";
 import {buttonHiddenStateToggle}  from "./scripts/dom.service.js";
 import {loader} from "./scripts/loader.service.js";
 import {alertService} from "./scripts/alert.service.js";
+import {eventListeners} from "./scripts/events.service.js";
 
 import "./scripts/main";
 
-
+eventListeners();
 
 
 // ======================
