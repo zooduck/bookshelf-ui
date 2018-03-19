@@ -1,15 +1,32 @@
+import {$http} from "./http.service";
+import {alertService} from "./alert.service";
+import {addBookToDOM} from "./addBookToDOM.service";
+import {headerMenuToggle} from "./dom.service";
+
 export const addBookToLibrary = (bookData) => {
-  //alert(`add title: ${bookData.title} isbn: ${bookData.industryIdentifiers[0].identifier} to library`);
-  // alert(`TODO!\nADD ${bookData.volumeInfo.title} TO LIBRARY`);
-  const xhr = new XMLHttpRequest();
-  console.log("bookData",bookData.volumeInfo);
-  xhr.open("POST", "https://zoobooks-api.herokuapp.com/add_book");
-  xhr.send(JSON.stringify(bookData.volumeInfo));
-  xhr.onload = function () {
-    alert(`${bookData.volumeInfo.title} added to library`);
-    console.log(xhr.responseText);
+  // validation...
+  let formValid = true;
+  for (const formControl of Array.from(zoobooks().elements()["forms"]["addBook"]["form"].elements)) {
+    if (!formControl.value) {
+      alertService().raise({key: `VALUE_REQUIRED_FOR ${formControl.name}`});
+      alert(`VALUE_REQUIRED_FOR ${formControl.name}`);
+      formValid = false;
+      break;
+    }
   }
-  xhr.onerror = function (e) {
-    console.error(e)
+  if (!formValid) {
+    return;
   }
+  $http("POST", "https://zoobooks-api.herokuapp.com/add_book", JSON.stringify(bookData.volumeInfo)).then( (responseText) => {
+    const responseObj = JSON.parse(responseText);
+    if (responseObj.title) {
+      addBookToDOM(responseObj, {isNew: true});
+      headerMenuToggle();
+      alertService().raise({key: `${responseObj.title} added to library`});
+    } else {
+      alertService().raise({key: responseText});
+    }
+  }, err => {
+    console.error(err);
+  });
 }

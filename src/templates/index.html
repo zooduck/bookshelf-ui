@@ -4,28 +4,30 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="author" content="zooduck">
+        <!-- material-icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- styles -->
         <link rel="manifest" href="./manifest.json">
-        <title>zoobooks-ui</title>
+        <title>ZOOBOOKS</title>
     </head>
 
     <body>
 
       <header>
-        <span>zoobooks-ui</span>
+        <span class="header__title">ZOOBOOKS</span>
         <div class="header__ctrl__menu">
           <button type="button" id="ctrl__menuToggle">
-            <i class="material-icons md-dark">menu</i>
+            <i class="material-icons md-light md-36">menu</i>
           </button>
         </div>
       </header>
 
       <books>
         <div class="book" id="bookTemplate" template>
-          <a href="" target="_blank" thumbnailanchor>
+          <img class="book__thumbnail" thumbnail src="" alt="">
+          <!-- <a href="" target="_blank" thumbnailanchor>
             <div class="book__thumbnail" thumbnail alt=""></div>
-          </a>
+          </a> -->
           <div class="book__data">
             <div class="book__title">
               <span title></span>
@@ -35,7 +37,7 @@
               <span isbn></span>
             </div> -->
             <div class="book__authors">
-              <span>Author(s)</span>
+              <span>Author</span>
               <span authors></span>
             </div>
             <div class="book__category">
@@ -49,6 +51,12 @@
               </div>
             </div> -->
           </div>
+
+          <div class="book__ctrls">
+            <span class="book__ctrl delete">
+              <i class="material-icons md-36 md-dark">delete</i>
+            </span>
+          </div>
         </div>
       </books>
 
@@ -57,16 +65,17 @@
 
         <div class="form__add-book__wrapper">
 
-          <div class="form__add-book__thumbnail" form__add-book__book-thumbnail></div>
+          <!-- <div class="form__add-book__thumbnail" form__add-book__book-thumbnail></div> -->
+          <img src="" class="form__add-book__thumbnail missing" alt="" form__add-book__book-thumbnail>
 
           <div class="spacer__x__10px"></div>
 
-          <div class="form__add-book" id="form__addBook">
+          <form class="form__add-book" id="form__addBook">
 
             <div class="form__add-book__item">
               <label>
                 <span>ISBN</span>
-                <input type="text" placeholder="Ex. 978-0-14-102052-5" form__add-book__book-isbn>
+                <input type="text" name="isbn" placeholder="Ex. 978-0-14-102052-5" form__add-book__book-isbn>
               </label>
             </div>
 
@@ -74,47 +83,68 @@
               <label>
                 <span>Title</span>
                 <!-- <textarea rows="1" placeholder="Ex. A short history of tractors in Ukrainian" form__add-book__book-title></textarea> -->
-                <input type="text" placeholder="Ex. A short history of tractors in Ukrainian" form__add-book__book-title>
+                <input type="text" name="title" placeholder="Ex. A short history of tractors in Ukrainian" form__add-book__book-title>
               </label>
             </div>
 
             <div class="form__add-book__item">
               <label>
-                <span>Author(s)</span>
-                <input type="text" placeholder="Ex. Marina Lewycka" form__add-book__book-authors>
+                <span>Author</span>
+                <input type="text" name="author" placeholder="Ex. Marina Lewycka" form__add-book__book-authors>
               </label>
             </div>
 
             <div class="form__add-book__item">
               <label>
                 <span>Category</span>
-                <select form__add-book__book-category>
-                  <option>--</option>
+                <select name="category" form__add-book__book-category>
+                  <option value="">--</option>
                 </select>
               </label>
             </div>
 
 
-          </div><!-- // form__add-book -->
+          </form><!-- // form__add-book -->
+
+
+          <div class="form__add-book__ctrls search-and-add">
+            <button type="button" id="ctrl__findBookByISBN" disabled>
+              <span>Search Google</span>
+              <i class="material-icons md-dark md-36">search</i>
+            </button>
+            <div class="spacer__x__10px"></div>
+            <button type="button" id="ctrl__addBookToLibrary" disabled>
+              <span>Add to Library</span>
+              <i class="material-icons md-dark md-36">add</i>
+            </button>
+          </div>
 
 
         </div><!-- // form__add-book__wrapper -->
 
 
-        <div class="form__add-book__ctrls">
-          <button type="button" class="chevron" form__add-book__ctrls__previous-book>last</button>
+        <div class="form__add-book__ctrls carousel">
+          <button type="button" class="chevron" form__add-book__ctrls__previous-book>
+            <i class="material-icons md-36 md-dark">chevron_left</i>
+          </button>
           <div class="spacer__x__10px" form__add-book__ctrls__total-items>0 of 0</div>
-          <button type="button" class="chevron" form__add-book__ctrls__next-book>next</button>
+          <button type="button" class="chevron" form__add-book__ctrls__next-book>
+            <i class="material-icons md-36 md-dark">chevron_right</i>
+          </button>
         </div>
 
 
-        <div class="form__add-book__ctrls">
-          <button type="button" id="ctrl__findBookByISBN">Book Lookup</button>
+        <!-- <div class="form__add-book__ctrls search-and-add">
+          <button type="button" id="ctrl__findBookByISBN" disabled>
+            <span>Search Google</span>
+            <i class="material-icons md-dark md-36">search</i>
+          </button>
           <div class="spacer__x__10px"></div>
-          <button type="button" id="ctrl__addBookToLibrary">Add to Library</button>
-        </div>
-
-
+          <button type="button" id="ctrl__addBookToLibrary" disabled>
+            <span>Add to Library</span>
+            <i class="material-icons md-dark md-36">add</i>
+          </button>
+        </div> -->
 
       </maintenance>
 

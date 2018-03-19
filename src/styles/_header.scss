@@ -1,0 +1,16 @@
+header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .85);
+  color: rgba(255, 255, 255, 1);
+}
+header .header__title {
+  font: bold 36px calibri, sans-serif;
+  padding: 10px;
+}
