@@ -1,3 +1,4 @@
+import {deleteBookFromLibrary} from "./deleteBookFromLibrary.service";
 export const addBookToDOM = (data, options = {isNew: false}) => {
   const books = document.querySelector("books");
   const bookTemplate = document.querySelector("#bookTemplate");
@@ -10,6 +11,7 @@ export const addBookToDOM = (data, options = {isNew: false}) => {
   const book__el__thumbnailanchor = book__el.querySelector("[thumbnailanchor]");
   const book__el__thumbnail = book__el.querySelector("[thumbnail]");
   const book__el__description = book__el.querySelector("[description]");
+  const book__el__delete = book__el.querySelector("[delete]");
 
   book__el.removeAttribute("template");
 
@@ -29,6 +31,12 @@ export const addBookToDOM = (data, options = {isNew: false}) => {
   //   book__el__description.value = data.description;
   //   book__el__description.rows = data.description.length < 200? "1" : data.description.length < 400? "2" : data.description.length < 600? "3" : "6";
   // } else book__el__description.hidden = true;
+
+  book__el__delete.setAttribute("isbn", data.isbn);
+  book__el__delete.addEventListener("click", function () {
+    const isbn = this.getAttribute("isbn");
+    deleteBookFromLibrary(isbn);
+  });
 
   books.appendChild(book__el);
 
