@@ -26,12 +26,13 @@ export const addBookToDOM = (data, options = {isNew: false}) => {
   book__el__authors.innerHTML = data.authors.map( (item) => item.name).join(", ");
 
   book__el__category.innerHTML = data.category;
-  //
+  
   // if (data.description) {
   //   book__el__description.value = data.description;
   //   book__el__description.rows = data.description.length < 200? "1" : data.description.length < 400? "2" : data.description.length < 600? "3" : "6";
   // } else book__el__description.hidden = true;
 
+  book__el.id = data.isbn;
   book__el__delete.setAttribute("isbn", data.isbn);
   book__el__delete.addEventListener("click", function () {
     const isbn = this.getAttribute("isbn");

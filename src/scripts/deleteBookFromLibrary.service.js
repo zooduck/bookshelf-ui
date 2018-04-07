@@ -1,10 +1,11 @@
 import {$http} from "./http.service";
+import {alertService} from "./alert.service";
+import {deleteBookFromDOM} from "./deleteBookFromDom.service.js";
 export const deleteBookFromLibrary = function deleteBookFromLibrary (isbn) {
-  $http("POST", `https://zoobooks-api.herokuapp.com/delete_book/${isbn}/`).then( (responseText) => {
-    return alert(`TODO! DELETE BOOK WITH ISBN: ${isbn} FROM LIBRARY!`);
-    const responseObj = JSON.parse(responseText);
-    console.log("responseObj", responseObj);
+  $http("POST", `https://zoobooks-api.herokuapp.com/delete_book/${isbn}`).then( (responseText) => {
+    // remove book from DOM
+    deleteBookFromDOM(isbn);
   }, err => {
-    console.error(err);
+    alertService().raise({key: err.status});
   });
 }
