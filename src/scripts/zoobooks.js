@@ -1,3 +1,4 @@
+import {Book} from "./models/book.model";
 const zoobooks = (function zoobooks () {
   let bookDataForImport = {}
   const categories = [
@@ -9,22 +10,22 @@ const zoobooks = (function zoobooks () {
     "Work & Wellbeing",
     "Other"
   ];
-  const categoriesMap = {
-    "communication": "Communication",
-    "agile": "Agile & Tech",
-    "tech": "Agile & Tech",
-    "computers": "Agile & Tech",
-    "customer": "Customer Centricity",
-    "leadership": "Leadership & Culture",
-    "culture": "Leadership & Culture",
-    "startup": "Start-up & Entrepreneurial",
-    "start-up": "Start-up & Entrepreneurial",
-    "entrepreneur": "Start-up & Entrepreneurial",
-    "work":  "Work & Wellbeing",
-    "wellbeing": "Work & Wellbeing",
-    "other": "Other",
-    "fiction": "Other"
-  };
+  // const categoriesMap = {
+  //   "communication": "Communication",
+  //   "agile": "Agile & Tech",
+  //   "tech": "Agile & Tech",
+  //   "computers": "Agile & Tech",
+  //   "customer": "Customer Centricity",
+  //   "leadership": "Leadership & Culture",
+  //   "culture": "Leadership & Culture",
+  //   "startup": "Start-up & Entrepreneurial",
+  //   "start-up": "Start-up & Entrepreneurial",
+  //   "entrepreneur": "Start-up & Entrepreneurial",
+  //   "work":  "Work & Wellbeing",
+  //   "wellbeing": "Work & Wellbeing",
+  //   "other": "Other",
+  //   "fiction": "Other"
+  // };
   const bookSearchAPI = {
     query: {
       isbn: "",
@@ -38,10 +39,21 @@ const zoobooks = (function zoobooks () {
       categories() {
         return categories;
       },
-      categoriesMap() {
-        return categoriesMap;
-      },
+      // categoriesMap() {
+      //   return categoriesMap;
+      // },
       bookSearchAPI__SET(data) {
+        let items = data.results.items.map( (item) => {
+          return new Book(item);
+          // item.volumeInfo.isbn = item.volumeInfo.industryIdentifiers? item.volumeInfo.industryIdentifiers[0].identifier : "";
+          // try {
+          //   item.volumeInfo.google_thumbnail = item.volumeInfo.imageLinks.thumbnail;
+          // } catch (e) {
+          //   item.volumeInfo.google_thumbnail = "";
+          // }
+          // return item;
+        });
+        data.results.items = items;
         for (let key in data) {
           bookSearchAPI[key] = data[key];
         }
@@ -65,6 +77,7 @@ const zoobooks = (function zoobooks () {
               menuToggle: document.querySelector("#ctrl__menuToggle"),
             }
           },
+          books: document.querySelector("books"),
           forms: {
             addBook: {
               form: document.querySelector("#form__addBook"),

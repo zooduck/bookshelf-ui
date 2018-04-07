@@ -20,9 +20,22 @@ export const $http = (type, url, formData=null, requestHeaders = []) => {
 			xhr.setRequestHeader(key, val);
 		}
 		xhr.send(formData);
-		xhr.onload = () => {
-			resolve(xhr.responseText);
+		xhr.onreadystatechange = function () {
+			if (xhr.status >= 200 && xhr.status < 400 && xhr.readyState == 4) {
+				// resolve
+				resolve(xhr.responseText);
+			} else if (xhr.readyState == 4) {
+				// reject
+				const error = {
+					status: xhr.status
+				}
+				reject(error);
+			}
 		}
+		// xhr.onload = () => {
+		// 	alert("xhr.status", xhr.status);
+		// 	resolve(xhr.responseText);
+		// }
 	});
 	return promise;
 };

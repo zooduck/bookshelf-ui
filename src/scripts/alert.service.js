@@ -4,6 +4,7 @@ export const alertService = (function alertService () {
       raise(data = {key: "GENERIC_ERROR", msg: ""}) {
         // alert(data.key);
         console.warn(`ALERT => ${data.key}`);
+        // alert(data.key);
       }
     }
   }
