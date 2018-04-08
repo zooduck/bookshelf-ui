@@ -3,6 +3,11 @@
   cursor: default;
 }
 
+.form__add-book__ctrl {
+  display: flex;
+  align-items: center;
+}
+
 input[type=text], textarea, select {
   padding: 5px;
   border: none;
@@ -10,8 +15,8 @@ input[type=text], textarea, select {
 }
 
 button[type=button] {
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
   border: none;
   outline: none;
   padding: 5px;
@@ -21,7 +26,7 @@ button[type=button] {
   font-family: arial, sans-serif;
   // font-weight: bold;
 }
-button[type=button]:disabled {
+button[type=button]:disabled, button[type=button]:disabled ~ i {
   @include --disabled;
 }
 button[type=button]:active {
