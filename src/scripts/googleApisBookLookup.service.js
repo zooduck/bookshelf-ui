@@ -26,6 +26,13 @@ export const findBookByISBN = (isbn, title, author, options = {maxResults: 40}) 
 export const showBookInView = (itemsIndex = 0) => {
   const data = zoobooks().bookSearchAPI();
 
+  console.log('data', data);
+
+  if (!data.results.items || data.results.items.length === 0) {
+    zoobooks().elements()["forms"]["addBook"]["ctrls"]["totalItems"].innerHTML = "0 of 0";
+    zoobooks().elements()["forms"]["addBook"]["bookThumbnail"].removeAttribute("src");
+  }
+
   if (!data.results.items || itemsIndex < 0 || itemsIndex >= data.results.items.length) {
     return alertService().raise({key: "OUT_OF_RANGE_ERROR"});
   }
@@ -41,7 +48,7 @@ export const showBookInView = (itemsIndex = 0) => {
 
   if (thumbnailUrl) {
     zoobooks().elements()["forms"]["addBook"]["bookThumbnail"].classList.remove("missing");
-  } else zoobooks().elements()["forms"]["addBook"]["bookThumbnail"].classList.add("missing")
+  } else zoobooks().elements()["forms"]["addBook"]["bookThumbnail"].classList.add("missing");
 
   // zoobooks().elements()["forms"]["addBook"]["bookThumbnail"].style.backgroundImage = `url("${thumbnailUrl}")`;
   zoobooks().elements()["forms"]["addBook"]["bookThumbnail"].setAttribute("src", thumbnailUrl);

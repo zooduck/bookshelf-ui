@@ -10,48 +10,31 @@ const zoobooks = (function zoobooks () {
     "Work & Wellbeing",
     "Other"
   ];
-  // const categoriesMap = {
-  //   "communication": "Communication",
-  //   "agile": "Agile & Tech",
-  //   "tech": "Agile & Tech",
-  //   "computers": "Agile & Tech",
-  //   "customer": "Customer Centricity",
-  //   "leadership": "Leadership & Culture",
-  //   "culture": "Leadership & Culture",
-  //   "startup": "Start-up & Entrepreneurial",
-  //   "start-up": "Start-up & Entrepreneurial",
-  //   "entrepreneur": "Start-up & Entrepreneurial",
-  //   "work":  "Work & Wellbeing",
-  //   "wellbeing": "Work & Wellbeing",
-  //   "other": "Other",
-  //   "fiction": "Other"
-  // };
-  const bookSearchAPI = {
+  const bookSearchAPIDefaults = {
     query: {
       isbn: "",
       title: "",
       author: ""
     },
-    results: []
-  }
+    results: {
+      items: []
+    },
+    kind: "",
+    totalItems: 0
+  };
+  let bookSearchAPI = Object.assign({}, bookSearchAPIDefaults);
   return function () {
     return {
       categories() {
         return categories;
       },
-      // categoriesMap() {
-      //   return categoriesMap;
-      // },
       bookSearchAPI__SET(data) {
+        if (!data) {
+          bookSearchAPI = Object.assign({}, bookSearchAPIDefaults);
+          return;
+        }
         let items = data.results.items.map( (item) => {
           return new Book(item);
-          // item.volumeInfo.isbn = item.volumeInfo.industryIdentifiers? item.volumeInfo.industryIdentifiers[0].identifier : "";
-          // try {
-          //   item.volumeInfo.google_thumbnail = item.volumeInfo.imageLinks.thumbnail;
-          // } catch (e) {
-          //   item.volumeInfo.google_thumbnail = "";
-          // }
-          // return item;
         });
         data.results.items = items;
         for (let key in data) {
@@ -67,7 +50,6 @@ const zoobooks = (function zoobooks () {
       importData__SET(data) {
         bookDataForImport = data;
       },
-
       elements() {
         return {
           loader: document.querySelector("#loader"),
@@ -87,6 +69,7 @@ const zoobooks = (function zoobooks () {
               bookThumbnail: document.querySelector("[form__add-book__book-thumbnail]"),
               bookCategory: document.querySelector("[form__add-book__book-category]"),
               ctrls: {
+                createBook: document.querySelector("#ctrl__createBook"),
                 findBookByISBN: document.querySelector("#ctrl__findBookByISBN"),
                 addBookToLibrary: document.querySelector("#ctrl__addBookToLibrary"),
                 totalItems: document.querySelector("[form__add-book__ctrls__total-items]"),

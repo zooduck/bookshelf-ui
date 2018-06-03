@@ -18,12 +18,13 @@ export const eventListeners = (function eventListners () {
   });
 
   zoobooks().elements()["forms"]["addBook"]["bookTitle"].addEventListener("keyup", function (e) {
-    const validationPattern = /\w{5,}/;
+    const validationPattern = /\w{1,}/;
     const vals = [];
     vals.push(this.value);
     vals.push(zoobooks().elements()["forms"]["addBook"]["bookISBN"].value);
     if (validationService().validate(vals, validationPattern)) {
       ctrlsService().enable(zoobooks().elements()["forms"]["addBook"]["ctrls"]["findBookByISBN"]);
+      ctrlsService().enable(zoobooks().elements()["forms"]["addBook"]["ctrls"]["addBookToLibrary"]);
     } else {
       ctrlsService().disable(zoobooks().elements()["forms"]["addBook"]["ctrls"]["findBookByISBN"]);
       ctrlsService().disable(zoobooks().elements()["forms"]["addBook"]["ctrls"]["addBookToLibrary"]);
@@ -37,12 +38,25 @@ export const eventListeners = (function eventListners () {
     vals.push(zoobooks().elements()["forms"]["addBook"]["bookTitle"].value);
     if (validationService().validate(vals, validationPattern)) {
       ctrlsService().enable(zoobooks().elements()["forms"]["addBook"]["ctrls"]["findBookByISBN"]);
+      ctrlsService().enable(zoobooks().elements()["forms"]["addBook"]["ctrls"]["addBookToLibrary"]);
     } else {
       ctrlsService().disable(zoobooks().elements()["forms"]["addBook"]["ctrls"]["findBookByISBN"]);
       ctrlsService().disable(zoobooks().elements()["forms"]["addBook"]["ctrls"]["addBookToLibrary"]);
     }
   });
 
+  // ======================
+  // [FORM CTRLS]
+  // CREATE BOOK
+  // ======================
+  zoobooks().elements()["forms"]["addBook"]["ctrls"]["createBook"].addEventListener("click", () => {
+    const addBookFormElements = Array.from(zoobooks().elements()["forms"]["addBook"]["form"].elements);
+    for (const formElement of addBookFormElements) {
+      formElement.value = "";
+    }
+    zoobooks().bookSearchAPI__SET(null);
+    googleApisBookLookup.showBookInView();
+  });  
   // ======================
   // [FORM CTRLS]
   // ADD BOOK TO LIBRARY
