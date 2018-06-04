@@ -1,7 +1,7 @@
 # zoobooks-ui
 UI for viewing and updating a library of books.
 
-![image](https://github.com/zooduck/screenshots/blob/master/zoobooks/zoobooks-2.png)
+![image](https://github.com/zooduck/screenshots/blob/master/zoobooks/zoobooks-1.png)
 
 ### After cloning repo:
 
