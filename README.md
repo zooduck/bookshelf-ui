@@ -3,6 +3,9 @@ UI for viewing and updating a library of books.
 
 ![image](https://github.com/zooduck/screenshots/blob/master/zoobooks/zoobooks-1.png)
 
+### To view on GitHub Pages:
+- https://zooduck.github.io/zoobooks-ui/dist/
+
 ### After cloning repo:
 
 `npm install`
